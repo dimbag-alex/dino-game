@@ -8,6 +8,7 @@ from PyQt5.QtCore import Qt
 class MyWidget(QWidget):
     def __init__(self):
         super().__init__()
+        self.rad = random.randint(30, 70)
         self.initUI()
 
     def initUI(self):
@@ -20,9 +21,12 @@ class MyWidget(QWidget):
         self.coor_x=10
         self.coor_y = 10
 
+
     def cicle(self):
         self.coor_x = random.randint(20, 250)
         self.coor_y = random.randint(20, 250)
+        self.rad = random.randint(30, 70)
+
 
     def paintEvent(self, event):
         qp = QPainter()
@@ -34,7 +38,7 @@ class MyWidget(QWidget):
     def Circle(self, qp):
         pen = QPen(Qt.yellow, 2)
         qp.setPen(pen)
-        qp.drawEllipse(self.coor_x, self.coor_y, 50, 50)
+        qp.drawEllipse(self.coor_x, self.coor_y, self.rad, self.rad)
 
 
 
